@@ -81,11 +81,12 @@ jobs:
   deploy:
     name: Run Deploy
     needs:
-      - changed-files
+      # - changed-files
       - build
       - lint
       - tests
-    if: ${{ github.event_name == 'push' && fromJSON(needs.changed-files.outputs.run-checks) && success() }}
+    # if: ${{ github.event_name == 'push' && fromJSON(needs.changed-files.outputs.run-checks) && success() }}
+    if: ${{ github.event_name == 'push' && success() }}
     runs-on: ubuntu-latest
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
