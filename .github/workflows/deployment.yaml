@@ -81,11 +81,9 @@ jobs:
   deploy:
     name: Run Deploy
     needs:
-      # - changed-files
       - build
       - lint
       - tests
-    # if: ${{ github.event_name == 'push' && fromJSON(needs.changed-files.outputs.run-checks) && success() }}
     if: ${{ github.event_name == 'push' && success() }}
     runs-on: ubuntu-latest
     env:
