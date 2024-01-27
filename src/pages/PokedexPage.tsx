@@ -1,6 +1,6 @@
+import Pokecard from '@/components/Pokecard';
 import { Pokemon, PokemonClient } from '@/services/pokeapi';
 import { useEffect, useState } from 'react';
-import Pokecard from './Pokecard';
 
 const api = new PokemonClient();
 
