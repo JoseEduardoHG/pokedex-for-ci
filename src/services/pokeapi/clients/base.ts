@@ -11,7 +11,10 @@ import {
   handleResponse,
   handleResponseError,
 } from '../config/logger';
-import { BASE_URL } from '../constants';
+import { BASE_URL, ENDPOINTS } from '../constants';
+
+type ObjectValue<T> = T[keyof T];
+type Endpoint = ObjectValue<typeof ENDPOINTS>;
 
 export interface ClientArgs {
   logs?: boolean;
@@ -42,14 +45,14 @@ export class BaseClient {
   }
 
   protected async getResource<T>(
-    endpoint: string,
+    endpoint: Endpoint,
     identifier?: string | number,
   ): Promise<T> {
     return (await this.api.get<T>(`${endpoint}/${identifier ?? ''}`)).data;
   }
 
   protected async getResourceList(
-    endpoint: string,
+    endpoint: Endpoint,
     offset = 0,
     limit = 20,
   ): Promise<NamedAPIResourceList> {
