@@ -1,22 +1,33 @@
+import { Pokemon, PokemonClient } from '@/services/pokeapi';
+import { useEffect, useState } from 'react';
 import Pokecard from './Pokecard';
 
+const api = new PokemonClient();
+
 export default function Pokedex() {
-  // TODO: remove the comment below before commit
-  // cSpell: disable
-  const pokemons = [
-    { id: '0001', name: 'Bulbasaur', type: 'Grass' },
-    { id: '0002', name: 'Ivysaur', type: 'Grass' },
-    { id: '0003', name: 'Venusaur', type: 'Grass' },
-    { id: '0004', name: 'Charmander', type: 'Fire' },
-    { id: '0005', name: 'Charmeleon', type: 'Fire' },
-    { id: '0006', name: 'Charizard', type: 'Fire' },
-    { id: '0007', name: 'Squirtle', type: 'Water' },
-    { id: '0008', name: 'Wartortle', type: 'Water' },
-    { id: '0009', name: 'Blastoise', type: 'Water' },
-  ];
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    getPokemons()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  async function getPokemons() {
+    const resources = await api.getPokemonList();
+    setPokemons(
+      await Promise.all(
+        resources.results.map(
+          async (resource) => await api.getPokemon(resource.name),
+        ),
+      ),
+    );
+  }
 
   return (
-    <article className='white grid grid-cols-4 gap-4 bg-slate-800'>
+    <article className='white mx-2 flex flex-wrap justify-center gap-4 bg-slate-800'>
       {pokemons.map((pokemon) => (
         <Pokecard key={pokemon.id} pokemon={pokemon} />
       ))}
