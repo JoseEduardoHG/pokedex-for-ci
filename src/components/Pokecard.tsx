@@ -1,8 +1,5 @@
-export interface Pokemon {
-  id: string;
-  name: string;
-  type: string;
-}
+import { Pokemon } from '@/services/pokeapi';
+import { capitalize } from '@/utils/utils';
 
 interface PokecardProps {
   pokemon: Pokemon;
@@ -10,16 +7,20 @@ interface PokecardProps {
 
 export default function Pokecard({ pokemon }: PokecardProps) {
   return (
-    <>
-      <section
-        data-testid='pokemon-card'
-        className='flex flex-col gap-2 rounded-lg bg-slate-700 p-2'
-      >
-        <img src='https://placehold.co/200' alt='' className='mx-auto' />
+    <section
+      data-testid='pokemon-card'
+      className='flex h-96 w-64 flex-col justify-between gap-2 rounded-lg bg-slate-700 px-4 py-2'
+    >
+      <img
+        src={pokemon.sprites.other?.dream_world.front_default ?? undefined}
+        alt=''
+        className='h-2/3'
+      />
+      <div className='flex h-1/3 flex-col justify-center'>
         <p className='opacity-60'>No. {pokemon.id}</p>
-        <h3 className='text-xl font-bold'>{pokemon.name}</h3>
-        <p>{pokemon.type}</p>
-      </section>
-    </>
+        <h3 className='text-xl font-bold'>{capitalize(pokemon.name)}</h3>
+        <p>{capitalize(pokemon.types[0].type.name)}</p>
+      </div>
+    </section>
   );
 }
