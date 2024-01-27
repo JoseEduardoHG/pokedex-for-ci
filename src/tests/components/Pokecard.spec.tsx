@@ -1,11 +1,38 @@
 import Pokecard from '@/components/Pokecard';
+import { Pokemon } from '@/services/pokeapi';
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
-const mockPokemon = {
-  id: '0004',
+const mockPokemon: Pokemon = {
+  id: 3,
   name: 'Charmander',
-  type: 'Fire',
+  sprites: {
+    other: {
+      dream_world: {
+        front_default: 'https://placehold.co/200',
+        front_female: null
+      },
+      home: {
+        front_default: 'https://placehold.co/200',
+        front_female: null,
+        front_shiny: 'https://placehold.co/200',
+        front_shiny_female: null
+      },
+      official_artwork: {
+        front_default: 'https://placehold.co/200',
+        front_shiny: 'https://placehold.co/200'
+      }
+    }
+  },
+  types: [
+    {
+      slot: 1,
+      type: {
+        name: 'Fire',
+        url: 'https://pokeapi.co/api/v2/type/10/'
+      }
+    }
+  ]
 };
 
 describe('Pokecard', () => {
