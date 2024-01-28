@@ -8,7 +8,7 @@ interface PokecardProps {
 export default function Pokecard({ pokemon }: PokecardProps) {
   return (
     <section
-      data-testid='pokemon-card'
+      role='cell'
       className='flex h-96 w-64 flex-col justify-between gap-2 rounded-lg bg-slate-700 px-4 py-2'
     >
       <img
