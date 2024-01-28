@@ -53,15 +53,7 @@ export default function Pokedex() {
             pageRangeDisplayed={1}
             onPageChange={(selectedItem) => {
               setCurrentPage(selectedItem.selected + 1);
-              // console.table({ onPageChange: selectedItem.selected });
             }}
-            // onPageActive={(selectedItem) => {
-            //   // setCurrentPage(selectedItem.selected + 1);
-            //   console.table({ onPageActive: selectedItem.selected });
-            // }}
-            // onClick={(selectedItem) => {
-            //   console.table({ onClick: selectedItem.selected });
-            // }}
             containerClassName='pagination'
             disableInitialCallback={true}
             pageLinkClassName='page-item'
