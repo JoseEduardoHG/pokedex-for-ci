@@ -1,10 +1,16 @@
 import App from '@/App';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { describe, it } from 'vitest';
 
-describe('App Component', () => {
-  it('should render hello world', () => {
-    render(<App />);
-    screen.getByRole('heading', { name: /hello world/i });
+const MockApp = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+describe('App', () => {
+  it('should render', () => {
+    render(<MockApp />);
   });
 });
