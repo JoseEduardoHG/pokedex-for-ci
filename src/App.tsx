@@ -1,11 +1,10 @@
 import PokedexPage from '@/pages/PokedexPage';
+import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
   return (
-    <>
-      <main className='mx-auto max-w-screen-lg'>
-        <PokedexPage />
-      </main>
-    </>
+    <Routes>
+      <Route path='/' element={<PokedexPage />} />
+    </Routes>
   );
 }
