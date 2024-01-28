@@ -8,7 +8,7 @@ html {
 }
 
 .pagination {
-  @apply mt-4 flex items-center justify-center gap-2 p-2;
+  @apply flex items-center justify-center gap-2 p-2;
 }
 
 .controls {
