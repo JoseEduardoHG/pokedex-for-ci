@@ -3,9 +3,9 @@ export default function Footer() {
     <footer className='flex flex-col items-center gap-2 bg-slate-900 px-8 py-4'>
       <p className='text-2xl font-bold'>Copyright ©️ 2024 JoseEduardoHG</p>
       <p className='text-2xl'>Released under MIT License</p>
-      <p className='flex gap-2 text-2xl'>
+      <p className='flex flex-col gap-2 text-2xl sm:flex-row'>
         You can see the source code on{' '}
-        <span className='font-bold text-blue-200'>
+        <span className='font-bold text-yellow-300'>
           <a
             target='_blank'
             rel='noopener noreferrer'
