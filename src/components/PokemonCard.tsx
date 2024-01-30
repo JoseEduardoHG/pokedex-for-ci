@@ -2,12 +2,12 @@ import Pill from '@/components/Pill';
 import { Pokemon } from '@/services/pokeapi';
 import { capitalize } from '@/utils/utils';
 
-interface PokecardProps {
+interface PokemonCardProps {
   pokemon: Pokemon;
   onClick?: (pokemonId: number) => void;
 }
 
-export default function Pokecard({ pokemon, onClick }: PokecardProps) {
+export default function PokemonCard({ pokemon, onClick }: PokemonCardProps) {
   return (
     <section
       role='cell'
