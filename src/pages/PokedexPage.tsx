@@ -1,3 +1,4 @@
+import ErrorDisplay from '@/components/ErrorDisplay';
 import PokemonCard from '@/components/PokemonCard';
 import { Pokemon, PokemonClient } from '@/services/pokeapi';
 import { useEffect, useState } from 'react';
@@ -41,7 +42,7 @@ export default function Pokedex() {
   return (
     <>
       {error ? (
-        <section className='text-red-500'>{error}</section>
+        <ErrorDisplay error={error} />
       ) : (
         <section className='mx-4 flex flex-col justify-center gap-4'>
           <section
