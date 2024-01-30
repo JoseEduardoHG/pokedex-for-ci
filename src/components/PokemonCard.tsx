@@ -4,7 +4,7 @@ import { capitalize } from '@/utils/utils';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
-  onClick?: (pokemonId: number) => void;
+  onClick?: (pokemonName: string) => void;
 }
 
 export default function PokemonCard({ pokemon, onClick }: PokemonCardProps) {
@@ -12,7 +12,7 @@ export default function PokemonCard({ pokemon, onClick }: PokemonCardProps) {
     <section
       role='cell'
       className='flex h-96 cursor-pointer flex-col justify-between gap-2 rounded-lg bg-slate-700 px-4 py-2 transition-transform hover:scale-105 focus:scale-105'
-      onClick={() => onClick?.(pokemon.id)}
+      onClick={() => onClick?.(pokemon.name)}
     >
       <img
         src={

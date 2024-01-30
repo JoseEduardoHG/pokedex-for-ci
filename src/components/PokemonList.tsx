@@ -3,7 +3,7 @@ import PokemonCard from './PokemonCard';
 
 interface PokemonListProps {
   pokemons: Pokemon[];
-  onClick?: (pokemonId: number) => void;
+  onClick?: (pokemonName: string) => void;
 }
 
 export default function PokemonList({ pokemons, onClick }: PokemonListProps) {
