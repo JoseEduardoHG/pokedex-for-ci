@@ -2,33 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-body,
-html {
-  @apply bg-slate-800 text-white;
+@layer base {
+  body {
+    @apply bg-slate-800 text-white;
+  }
 }
 
-.pagination {
-  @apply flex items-center justify-center gap-2 p-2;
-}
+@layer components {
+  .pagination {
+    @apply flex items-center justify-center gap-2 p-2;
+  }
 
-.controls {
-  @apply rounded-md border-2 border-slate-700 px-4 py-2;
-}
+  .controls {
+    @apply rounded-md border-2 border-slate-700 px-4 py-2 hover:shadow-sm hover:shadow-slate-700 focus:shadow-sm focus:shadow-slate-700;
+  }
 
-.controls:hover,
-.controls:focus {
-  @apply shadow-sm shadow-slate-700;
-}
+  .page-item {
+    @apply flex h-8 w-8 items-center justify-center rounded-md bg-slate-900 px-2 py-1 text-white hover:scale-110 hover:shadow-sm hover:shadow-slate-700 focus:scale-110 focus:shadow-sm focus:shadow-slate-700;
+  }
 
-.page-item {
-  @apply flex h-8 w-8 items-center justify-center rounded-md bg-slate-900 px-2 py-1 text-white;
-}
-
-.page-item:hover,
-.page-item:focus {
-  @apply scale-110 shadow-sm shadow-slate-700;
-}
-
-.active {
-  @apply bg-yellow-500;
+  .active {
+    @apply bg-yellow-500;
+  }
 }
