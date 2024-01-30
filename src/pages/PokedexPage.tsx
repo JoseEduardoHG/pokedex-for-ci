@@ -1,5 +1,5 @@
 import ErrorDisplay from '@/components/ErrorDisplay';
-import PokemonCard from '@/components/PokemonCard';
+import PokemonList from '@/components/PokemonList';
 import { Pokemon, PokemonClient } from '@/services/pokeapi';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
@@ -45,18 +45,7 @@ export default function Pokedex() {
         <ErrorDisplay error={error} />
       ) : (
         <section className='mx-4 flex flex-col justify-center gap-4'>
-          <section
-            role='grid'
-            className='grid-auto-fit-sm grid gap-4 bg-slate-800'
-          >
-            {pokemons.map((pokemon) => (
-              <PokemonCard
-                key={pokemon.id}
-                pokemon={pokemon}
-                onClick={handleClick}
-              />
-            ))}
-          </section>
+          <PokemonList pokemons={pokemons} onClick={handleClick} />
           <ReactPaginate
             pageCount={pageCount}
             previousLabel='<'
