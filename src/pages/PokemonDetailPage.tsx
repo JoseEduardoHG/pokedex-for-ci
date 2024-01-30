@@ -4,44 +4,40 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export default function PokemonDetailPage() {
-  const { pokemonId } = useParams<{ pokemonId: string }>();
+  const { pokemonName } = useParams<{ pokemonName: string }>();
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (pokemonId) {
+    if (pokemonName) {
       const api = new PokemonClient();
 
       api
-        .getPokemon(pokemonId)
+        .getPokemon(pokemonName)
         .then((pokemon) => {
           setPokemon(pokemon);
         })
         .catch((err: Error) => {
-          console.error(err);
+          setError(err.message);
         });
     }
-  }, [pokemonId]);
+  }, [pokemonName]);
 
   return (
     <>
-      {error ? (
-        <ErrorDisplay error={error} />
-      ) : (
-        <>
-          <p>No. 1</p>
-          <h2>Bulbasur</h2>
-          <p>
-            Tras nacer, crece alimentándose durante un tiempo de los nutrientes
-            que contiene el bulbo de su lomo.
-          </p>
-          <p>0.7 m</p>
-          <p>6.9 kg</p>
-          <p>Seed</p>
-          <p>Espesura</p>
-          <p data-testid={'type'}>Planta</p>
-          <p data-testid='debility'>Fire</p>
-        </>
+      {error && <ErrorDisplay error={error} />}
+      {pokemon && (
+        <section>
+          <p>No. {pokemon.id}</p>
+          <h2>{pokemon.name}</h2>
+          <p>{'description'}</p>
+          <p>{pokemon.height} m</p>
+          <p>{pokemon.weight} kg</p>
+          <p>{'category'}</p>
+          <p>{pokemon.abilities[0].ability.name}</p>
+          <p data-testid='type'>{pokemon.types[0].type.name}</p>
+          <p data-testid='debility'>{'debility'}</p>
+        </section>
       )}
     </>
   );

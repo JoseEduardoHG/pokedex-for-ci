@@ -3,9 +3,11 @@ import PokemonList from '@/components/PokemonList';
 import { Pokemon, PokemonClient } from '@/services/pokeapi';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import { useNavigate } from 'react-router-dom';
 import { NumberParam, useQueryParam } from 'use-query-params';
 
 export default function Pokedex() {
+  const navigate = useNavigate();
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [page, setPage] = useQueryParam('page', NumberParam);
   const [pageCount, setPageCount] = useState(0);
@@ -35,8 +37,8 @@ export default function Pokedex() {
       });
   }, [page]);
 
-  function handleClick(pokemonId: number) {
-    console.log(`Clicked on pokemon ${pokemonId}`);
+  function handleClick(pokemonName: string) {
+    navigate(`/pokedex/${pokemonName}`);
   }
 
   return (
