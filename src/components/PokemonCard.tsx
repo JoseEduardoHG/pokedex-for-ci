@@ -11,7 +11,7 @@ export default function Pokecard({ pokemon, onClick }: PokecardProps) {
   return (
     <section
       role='cell'
-      className='flex h-96 flex-col justify-between gap-2 rounded-lg bg-slate-700 px-4 py-2'
+      className='flex h-96 cursor-pointer flex-col justify-between gap-2 rounded-lg bg-slate-700 px-4 py-2 transition-transform hover:scale-105 focus:scale-105'
       onClick={() => onClick?.(pokemon.id)}
     >
       <img
@@ -31,7 +31,10 @@ export default function Pokecard({ pokemon, onClick }: PokecardProps) {
         </section>
         <section className='flex items-center gap-2'>
           {pokemon.types.map((pokemonType) => (
-            <Pill key={pokemon.id} name={capitalize(pokemonType.type.name)} />
+            <Pill
+              key={pokemonType.type.name}
+              name={capitalize(pokemonType.type.name)}
+            />
           ))}
         </section>
       </section>
