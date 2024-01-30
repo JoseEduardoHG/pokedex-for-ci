@@ -1,4 +1,4 @@
-import Pokecard from '@/components/Pokecard';
+import Pokecard from '@/components/PokemonCard';
 import { Pokemon, PokemonClient } from '@/services/pokeapi';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
