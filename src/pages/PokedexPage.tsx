@@ -39,38 +39,38 @@ export default function Pokedex() {
       {error ? (
         <section className='text-red-500'>{error}</section>
       ) : (
-        <section className='flex flex-col justify-center gap-4'>
-          <section
-            role='grid'
-            className='white mx-2 flex flex-wrap justify-center gap-4 bg-slate-800'
-          >
-            {pokemons.map((pokemon) => (
-              <Pokecard key={pokemon.id} pokemon={pokemon} />
-            ))}
+          <section className='mx-4 flex flex-col justify-center gap-4'>
+            <section
+              role='grid'
+              className='grid-auto-fit-sm grid gap-4 bg-slate-800'
+            >
+              {pokemons.map((pokemon) => (
+                <Pokecard key={pokemon.id} pokemon={pokemon} />
+              ))}
+            </section>
+            <ReactPaginate
+              pageCount={pageCount}
+              previousLabel='<'
+              nextLabel='>'
+              breakLabel='...'
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={1}
+              onPageChange={(selectedItem) => {
+                if (selectedItem.selected === 0) {
+                  setPage(undefined);
+                  return;
+                }
+                setPage(selectedItem.selected + 1);
+              }}
+              containerClassName='pagination'
+              disableInitialCallback={true}
+              pageLinkClassName='page-item'
+              breakLinkClassName='page-item'
+              previousLinkClassName='controls'
+              nextLinkClassName='controls'
+              activeLinkClassName='active'
+            />
           </section>
-          <ReactPaginate
-            pageCount={pageCount}
-            previousLabel='<'
-            nextLabel='>'
-            breakLabel='...'
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={1}
-            onPageChange={(selectedItem) => {
-              if (selectedItem.selected === 0) {
-                setPage(undefined);
-                return;
-              }
-              setPage(selectedItem.selected + 1);
-            }}
-            containerClassName='pagination'
-            disableInitialCallback={true}
-            pageLinkClassName='page-item'
-            breakLinkClassName='page-item'
-            previousLinkClassName='controls'
-            nextLinkClassName='controls'
-            activeLinkClassName='active'
-          />
-        </section>
       )}
     </>
   );
