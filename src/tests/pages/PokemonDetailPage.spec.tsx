@@ -1,10 +1,17 @@
 import PokemonDetailPage from '@/pages/PokemonDetailPage';
 import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { describe, it } from 'vitest';
+
+const MockPokemonDetailPage = () => (
+  <BrowserRouter>
+    <PokemonDetailPage />
+  </BrowserRouter>
+);
 
 describe('PokemonDetailPage', () => {
   it('should render', () => {
-    render(<PokemonDetailPage />);
+    render(<MockPokemonDetailPage />);
   });
 
   /*   it('should render the pokemon id', async () => {
