@@ -28,6 +28,10 @@
     @apply text-3xl;
   }
 
+  p {
+    @apply text-xl;
+  }
+
   .caption {
     @apply text-lg opacity-60;
   }
