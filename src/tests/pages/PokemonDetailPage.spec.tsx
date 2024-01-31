@@ -2,69 +2,55 @@ import PokemonDetailPage from '@/pages/PokemonDetailPage';
 import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
-/* const api = {
-  getPokemon: vi.fn(),
-};
-
-const mockPokemon: Pokemon = {
-  id: 1,
-  name: 'bulbasur',
-  sprites: {},
-  types: [],
-}; */
-
 describe('PokemonDetailPage', () => {
   it('should render', () => {
     render(<PokemonDetailPage />);
   });
-  /*   it('should render the pokemon id', () => {
-    const spy = vi.spyOn(api, 'getPokemon').mockResolvedValue(mockPokemon);
 
+  /*   it('should render the pokemon id', async () => {
     render(<PokemonDetailPage />);
-    // screen.getByText(/no. \d+/i);
-    expect(spy).toHaveBeenCalled();
-    expect(spy).toHaveReturnedWith(mockPokemon);
+    await screen.findByText(/no. \d+/i);
   });
 
-  it("should render the pokemon's name", () => {
+  it("should render the pokemon's name", async () => {
     render(<PokemonDetailPage />);
-    screen.getByText(/bulbasur/i);
+    await screen.findByText(/bulbasaur/i);
   });
 
-  it("should render the pokemon's description", () => {
+  // it("should render the pokemon's description", async () => {
+  //   render(<PokemonDetailPage />);
+  //   await screen.findByText(
+  //     /tras nacer, crece alimentándose durante un tiempo de los nutrientes que contiene el bulbo de su lomo/i,
+  //   );
+  // });
+
+  it("should render the pokemon's height", async () => {
     render(<PokemonDetailPage />);
-    screen.getByText(
-      /tras nacer, crece alimentándose durante un tiempo de los nutrientes que contiene el bulbo de su lomo/i,
-    );
+    await screen.findByText(/0.7 m/i);
   });
 
-  it("should render the pokemon's height", () => {
+  it("should render the pokemon's weight", async () => {
     render(<PokemonDetailPage />);
-    screen.getByText(/0.7 m/i);
+    await screen.findByText(/6.9 kg/i);
   });
 
-  it("should render the pokemon's weight", () => {
+  // it("should render the pokemon's category", async () => {
+  //   render(<PokemonDetailPage />);
+  //   await screen.findByText(/seed/i);
+  // });
+
+  it("should render the pokemon's ability", async () => {
     render(<PokemonDetailPage />);
-    screen.getByText(/6.9 kg/i);
+    await screen.findByText(/overgrow/i);
   });
 
-  it("should render the pokemon's category", () => {
+  it("should render the pokemon's types", async () => {
     render(<PokemonDetailPage />);
-    screen.getByText(/seed/i);
-  });
-
-  it("should render the pokemon's ability", () => {
-    render(<PokemonDetailPage />);
-    screen.getByText(/espesura/i);
-  });
-
-  it("should render the pokemon's types", () => {
-    render(<PokemonDetailPage />);
-    screen.getAllByTestId(/type/i);
-  });
-
-  it("should render the pokemon's debility", () => {
-    render(<PokemonDetailPage />);
-    screen.getAllByTestId(/debility/i);
+    await screen.findByText(/grass/i);
   }); */
+
+  // it("should render the pokemon's debility", async () => {
+  //   render(<PokemonDetailPage />);
+  //   await screen.findAllByTestId(/debility/i);
+  // });
 });

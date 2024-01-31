@@ -33,6 +33,23 @@ const mockPokemon: Pokemon = {
       },
     },
   ],
+  abilities: [],
+  base_experience: 0,
+  forms: [],
+  height: 0,
+  is_default: false,
+  order: 0,
+  species: {
+    name: 'charmander',
+    url: 'https://pokeapi.co/api/v2/pokemon-species/4/',
+  },
+  stats: [],
+  weight: 0,
+  game_indices: [],
+  held_items: [],
+  location_area_encounters: '',
+  moves: [],
+  past_types: [],
 };
 
 describe('Pokecard', () => {
