@@ -26,8 +26,8 @@ export default function PokemonCard({ pokemon, onClick }: PokemonCardProps) {
       />
       <section className='flex h-1/3 flex-col justify-center gap-2'>
         <section>
-          <p className='opacity-60'>No. {pokemon.id}</p>
-          <h3 className='text-xl font-bold'>{capitalize(pokemon.name)}</h3>
+          <p className='caption'>No. {pokemon.id}</p>
+          <h3>{capitalize(pokemon.name)}</h3>
         </section>
         <section className='flex items-center gap-2'>
           {pokemon.types.map((pokemonType) => (
