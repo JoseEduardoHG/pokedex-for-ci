@@ -43,7 +43,7 @@
   }
 
   .controls {
-    @apply rounded-md border-2 border-slate-700 px-4 py-2 hover:shadow-sm hover:shadow-slate-700 focus:shadow-sm focus:shadow-slate-700;
+    @apply select-none rounded-md border-2 border-slate-700 px-4 py-2 hover:shadow-sm hover:shadow-slate-700 focus:shadow-sm focus:shadow-slate-700;
   }
 
   .page-item {
