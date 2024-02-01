@@ -49,7 +49,9 @@ export default function Pokedex() {
         <section className='mx-4 flex flex-col justify-center gap-4'>
           <PokemonList pokemons={pokemons} onClick={handleClick} />
           <ReactPaginate
+            renderOnZeroPageCount={null}
             pageCount={pageCount}
+            forcePage={page ? page - 1 : 0}
             previousLabel='<'
             nextLabel='>'
             breakLabel='...'
@@ -65,7 +67,7 @@ export default function Pokedex() {
             containerClassName='pagination'
             disableInitialCallback={true}
             pageLinkClassName='page-item'
-            breakLinkClassName='page-item'
+            breakLinkClassName='page-item select-none'
             previousLinkClassName='controls'
             nextLinkClassName='controls'
             activeLinkClassName='active'
